@@ -1,0 +1,13 @@
+---
+- name: this is a test
+  hosts: test
+  become: false
+  gather_facts: false
+  # run_once: true
+  # connection: local
+  vars:
+    tmp_dir: /root/tmp
+    dpy_dir: "{{tmp_dir}}/{{cluster_name}}"
+  tasks:
+  - include_role:
+       name: test
