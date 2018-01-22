@@ -28,32 +28,32 @@ class Option():
     pass
 
 
-display = Display(3)
+display = Display(1)
 
-opt = Option()
-opt.config_file = "/home/zml/python/tansible/playbook/ansible.cfg"
-opt.listhosts = None
-opt.listtasks = None
-opt.listtags = None
-opt.syntax = None
+# opt = Option()
+# opt.config_file = "/home/zml/python/tansible/playbook/ansible.cfg"
+# opt.listhosts = None
+# opt.listtasks = None
+# opt.listtags = None
+# opt.syntax = None
 
-opt.display = Display(10)
-# opt.display.verbosity = 10
-opt.verbosity = 10
+# opt.display = Display(10)
+# # opt.display.verbosity = 10
+# opt.verbosity = 10
 
-playbook_executor.verbosity = 10
+# playbook_executor.verbosity = 10
 
-opt.module_path = None
-opt.become = None
-opt.become_method = None
-opt.become_user = "root"
+# opt.module_path = None
+# opt.become = None
+# opt.become_method = None
+# opt.become_user = "root"
 
-opt.check = None
-opt.diff = None
-opt.forks = 1
-opt.remote_user = 'root'
+# opt.check = None
+# opt.diff = None
+# opt.forks = 1
+# opt.remote_user = 'root'
     
-opt.connection='ssh'
+# opt.connection='ssh'
 
 
 
@@ -119,11 +119,12 @@ print("OK------")
 print(inventory.get_hosts())
 
 stats = tqm._stats
+tqm.cleanup()
 
 print(result)
 print(stats)
 hosts = sorted(stats.processed.keys())
-for h in hosts:
+for h in inventory.hosts:
     print(h)
     print(type(h))
     print(stats.summarize(h))
